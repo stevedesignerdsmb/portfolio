@@ -11,10 +11,10 @@ Since `.env.local` is gitignored for security, you need to create it manually.
 
 ```env
 # Cloudinary Configuration
-NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=dfwi6dpkz
-CLOUDINARY_API_KEY=697827227464647
-CLOUDINARY_API_SECRET=mNq66NSrKZOYKnVQ6O975lH8Fzg
-CLOUDINARY_URL=cloudinary://697827227464647:mNq66NSrKZOYKnVQ6O975lH8Fzg@dfwi6dpkz
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+CLOUDINARY_URL=cloudinary://your_api_key:your_api_secret@your_cloud_name
 ```
 
 ### Verification

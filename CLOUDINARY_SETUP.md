@@ -58,7 +58,7 @@ Cloudinary automatically optimizes images. The `CldImage` component will:
 
 After uploading images, verify they're accessible:
 - Check that public IDs match exactly (case-sensitive)
-- Test image URLs: `https://res.cloudinary.com/dfwi6dpkz/image/upload/portfolio/image-name`
+- Test image URLs: `https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload/portfolio/image-name`
 - Images should load in the development server
 
 ## Notes
