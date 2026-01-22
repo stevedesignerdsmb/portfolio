@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import type { ComponentProps } from 'react';
 
 export interface CloudinaryImageProps {
   src: string;
@@ -23,8 +24,11 @@ export function getCloudinaryUrl(publicId: string, transformations?: string): st
   return `${baseUrl}${transformString}/${publicId}`;
 }
 
-export function CldImage({ src, alt, width, height, className, priority }: CloudinaryImageProps) {
-  const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || '';
+export function CldImage({ src, alt, width, height, className, priority }: CloudinaryImageProps): JSX.Element {
+  const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+  if (!cloudName) {
+    throw new Error('NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME environment variable is not set');
+  }
   const imageUrl = `https://res.cloudinary.com/${cloudName}/image/upload/${src}`;
   
   return (

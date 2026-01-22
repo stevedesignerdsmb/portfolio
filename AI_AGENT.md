@@ -2,6 +2,27 @@
 
 This document provides guidelines for AI agents working on this portfolio project.
 
+## CRITICAL SECURITY RULES
+
+**NEVER commit or expose:**
+- API keys, secrets, or credentials
+- Environment variable values with real data
+- Passwords or tokens
+- Private keys or certificates
+
+**ALWAYS:**
+- Use placeholders in code/documentation: `your_api_key`, `your_cloud_name`
+- Store secrets only in `.env.local` (gitignored)
+- Never hardcode credentials in source code
+- Never include real credentials in commit messages
+- If credentials are exposed, immediately rotate them
+
+**If user provides credentials:**
+- Use them ONLY for local setup (`.env.local`)
+- NEVER commit them to git
+- NEVER include in documentation files
+- NEVER hardcode as fallbacks in code
+
 ## Project Overview
 
 This is a personal portfolio website built with Next.js 15, TypeScript, AlignUI design system, Cloudinary for images, and Framer Motion for animations. The portfolio is a single-page site with three main sections (Visuals, Projects, Motion) plus individual project detail pages for SEO.
@@ -171,6 +192,14 @@ Before committing:
 - [ ] SEO metadata is correct
 - [ ] Accessibility (alt text, semantic HTML)
 
+## Documentation Policy
+
+**DO NOT create documentation files unless explicitly requested.**
+- User is not a developer and won't read documentation
+- Focus on fixing code and making things work
+- Only create technical files needed for the project to function
+- Keep README.md minimal and practical
+
 ## Questions?
 
 When in doubt:
@@ -178,3 +207,4 @@ When in doubt:
 2. Check AlignUI documentation for design tokens
 3. Refer to Next.js 15 App Router documentation
 4. Use TypeScript types to guide implementation
+5. Fix errors, don't document them
