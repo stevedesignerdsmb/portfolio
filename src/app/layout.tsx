@@ -55,7 +55,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={ppNeueMontreal.variable}>
+    <html lang="en" className={`${ppNeueMontreal.className} ${ppNeueMontreal.variable}`}>
       <body className="antialiased">{children}</body>
     </html>
   );
