@@ -1,0 +1,35 @@
+[
+  {
+    "id": "1",
+    "slug": "fina-ai",
+    "title": "Fina AI - Expense tracker",
+    "description": "Currently building an AI-powered iOS and web finance app that helps people track and manage all their finances in one place.",
+    "longDescription": "Fina AI is a comprehensive financial management platform that leverages artificial intelligence to help users track expenses, manage budgets, and gain insights into their spending habits. Built for both iOS and web platforms.",
+    "image": "portfolio/fina-ai-dashboard",
+    "images": ["portfolio/fina-ai-dashboard", "portfolio/fina-ai-mobile"],
+    "tags": ["AI", "iOS", "Web", "Finance"],
+    "featured": true
+  },
+  {
+    "id": "2",
+    "slug": "smb-co",
+    "title": "SMB.co",
+    "description": "Manage tasks efficiently and keep projects moving forward without unnecessary delays.",
+    "longDescription": "SMB.co is a project management platform designed for small and medium businesses. It helps teams organize projects, track goals, and manage all their work from one place.",
+    "image": "portfolio/smb-co-dashboard",
+    "images": ["portfolio/smb-co-dashboard", "portfolio/smb-co-tasks"],
+    "tags": ["Project Management", "SaaS", "Web"],
+    "featured": true
+  },
+  {
+    "id": "3",
+    "slug": "mercadolibre",
+    "title": "MercadoLibre",
+    "description": "Organize projects, track goals, and manage all your team's work from one place.",
+    "longDescription": "Worked on various projects at MercadoLibre, focusing on improving user experience and internal tooling for project management and team collaboration.",
+    "image": "portfolio/mercadolibre-dashboard",
+    "images": ["portfolio/mercadolibre-dashboard"],
+    "tags": ["E-commerce", "Enterprise", "Web"],
+    "featured": true
+  }
+]

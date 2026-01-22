@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "image": "portfolio/visual-1",
+    "title": "Dashboard Design",
+    "description": "Modern dashboard interface"
+  },
+  {
+    "id": "2",
+    "image": "portfolio/visual-2",
+    "title": "Mobile App UI",
+    "description": "Clean mobile interface design"
+  },
+  {
+    "id": "3",
+    "image": "portfolio/visual-3",
+    "title": "Brand Identity",
+    "description": "Complete brand system"
+  },
+  {
+    "id": "4",
+    "image": "portfolio/visual-4",
+    "title": "Web Design",
+    "description": "Responsive web layout"
+  },
+  {
+    "id": "5",
+    "image": "portfolio/visual-5",
+    "title": "Illustration",
+    "description": "Custom illustrations"
+  },
+  {
+    "id": "6",
+    "image": "portfolio/visual-6",
+    "title": "Icon System",
+    "description": "Comprehensive icon library"
+  }
+]
