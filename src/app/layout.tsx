@@ -1,5 +1,43 @@
 import type { Metadata } from 'next';
+import localFont from 'next/font/local';
 import './globals.css';
+
+const ppNeueMontreal = localFont({
+  src: [
+    {
+      path: './fonts/PPNeueMontreal-Thin.otf',
+      weight: '100',
+      style: 'normal',
+    },
+    {
+      path: './fonts/PPNeueMontreal-Book.otf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: './fonts/PPNeueMontreal-Medium.otf',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: './fonts/PPNeueMontreal-SemiBolditalic.otf',
+      weight: '600',
+      style: 'italic',
+    },
+    {
+      path: './fonts/PPNeueMontreal-Bold.otf',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: './fonts/PPNeueMontreal-Italic.otf',
+      weight: '400',
+      style: 'italic',
+    },
+  ],
+  variable: '--font-pp-neue-montreal',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: 'Steve Calderon - Portfolio',
@@ -17,7 +55,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${ppNeueMontreal.className} ${ppNeueMontreal.variable}`}>
       <body className="antialiased">{children}</body>
     </html>
   );
