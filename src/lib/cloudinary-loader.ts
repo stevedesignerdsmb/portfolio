@@ -1,4 +1,10 @@
 export default function cloudinaryLoader({ src, width, quality }: { src: string; width: number; quality?: number }) {
+  // If src starts with /, it's a local image - return as-is
+  if (src.startsWith('/')) {
+    return src;
+  }
+  
+  // Otherwise, use Cloudinary
   const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
   if (!cloudName) {
     throw new Error('NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME environment variable is not set');

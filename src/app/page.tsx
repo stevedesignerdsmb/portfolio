@@ -1,58 +1,44 @@
+import Header from './components/Header';
 import Hero from './components/Hero';
-import Testimonial from './components/Testimonial';
 import SelectedWork from './components/SelectedWork';
 import WorkExperience from './components/WorkExperience';
 import AboutMe from './components/AboutMe';
 import AIWorkflow from './components/AIWorkflow';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import DividerSystem from './components/DividerSystem';
+import SectionTitle from './components/SectionTitle';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-white to-gray-50">
-      <div className="max-w-[1440px] mx-auto px-5">
-        <Hero />
-        <div className="flex justify-center my-16">
-          <Testimonial
-            quote="'It was such a pleasure working with Steve! He delivered perfection and he gave me true ease knowing that he's handling the project from beginning to end.'"
-            author="Eli Glanz"
-            role="CEO at ConceptLAB"
-            avatar="portfolio/testimonial-avatar"
-          />
+    <main className="min-h-screen relative">
+      <DividerSystem />
+      <Header />
+      <div className="max-w-[1440px] mx-auto px-5 relative z-10">
+        <div className="max-w-[1048px] mx-auto">
+          <Hero />
         </div>
-        <div className="flex items-center gap-6 my-16">
-          <div className="flex-1 h-px bg-gray-200" />
-          <h2 className="text-base text-gray-400 font-medium">Selected Work</h2>
-          <div className="flex-1 h-px bg-gray-200" />
+        <SectionTitle>Selected Work</SectionTitle>
+        <div className="max-w-[1048px] mx-auto">
+          <SelectedWork />
         </div>
-        <SelectedWork />
-        <div className="flex items-center gap-6 my-16">
-          <div className="flex-1 h-px bg-gray-200" />
-          <h2 className="text-base text-gray-400 font-medium">Recent Experience</h2>
-          <div className="flex-1 h-px bg-gray-200" />
+        <SectionTitle>Recent Experience</SectionTitle>
+        <div className="max-w-[1048px] mx-auto">
+          <WorkExperience />
         </div>
-        <WorkExperience />
-        <div className="flex items-center gap-6 my-16">
-          <div className="flex-1 h-px bg-gray-200" />
-          <h2 className="text-base text-gray-400 font-medium">About Me</h2>
-          <div className="flex-1 h-px bg-gray-200" />
+        <SectionTitle>About Me</SectionTitle>
+        <div className="max-w-[1048px] mx-auto">
+          <AboutMe />
         </div>
-        <AboutMe />
-        <div className="flex items-center gap-6 my-16">
-          <div className="flex-1 h-px bg-gray-200" />
-          <h2 className="text-base text-gray-400 font-medium">
-            How I use AI in my daily workflow
-          </h2>
-          <div className="flex-1 h-px bg-gray-200" />
+        <SectionTitle>How I use AI in my daily workflow</SectionTitle>
+        <div className="max-w-[1048px] mx-auto">
+          <AIWorkflow />
         </div>
-        <AIWorkflow />
-        <div className="flex items-center gap-6 my-16">
-          <div className="flex-1 h-px bg-gray-200" />
-          <h2 className="text-base text-gray-400 font-medium">Contact me</h2>
-          <div className="flex-1 h-px bg-gray-200" />
+        <SectionTitle>Contact me</SectionTitle>
+        <div className="max-w-[1048px] mx-auto">
+          <Contact />
+          <Footer />
         </div>
-        <Contact />
-        <Footer />
       </div>
     </main>
   );
