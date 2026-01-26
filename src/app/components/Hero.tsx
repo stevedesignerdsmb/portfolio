@@ -292,7 +292,7 @@ export default function Hero() {
         className="bg-bg-weak-50 rounded-3xl p-5 flex flex-col gap-4 items-center max-w-[455px] w-full mt-4"
       >
         <p className="text-paragraph-sm text-text-sub-600 text-center leading-5 font-medium">
-        ‘It was such a pleasure working with Steve! He delivered perfection and he gave me true ease knowing that he's handling the project from beginning to end.’
+        &apos;It was such a pleasure working with Steve! He delivered perfection and he gave me true ease knowing that he&apos;s handling the project from beginning to end.&apos;
         </p>
         <div className="flex flex-col gap-0.5 items-center">
           <div className="flex gap-1.5 items-center">

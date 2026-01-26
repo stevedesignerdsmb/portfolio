@@ -73,13 +73,14 @@ export default function Footer() {
       }
     );
 
-    if (footerRef.current) {
-      observer.observe(footerRef.current);
+    const currentRef = footerRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (footerRef.current) {
-        observer.unobserve(footerRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, [estimatedTokens, isVisible]);

@@ -35,11 +35,13 @@ export function LogoLoop({ logos, className = '' }: LogoLoopProps) {
 
     // Wait for images to load
     const images = containerRef.current?.querySelectorAll('img');
+    let checkComplete: (() => void) | null = null;
+    
     if (images && images.length > 0) {
       let loadedCount = 0;
       const totalImages = images.length;
       
-      const checkComplete = () => {
+      checkComplete = () => {
         loadedCount++;
         if (loadedCount === totalImages) {
           // Give extra time for layout to settle
@@ -49,8 +51,8 @@ export function LogoLoop({ logos, className = '' }: LogoLoopProps) {
 
       images.forEach((img) => {
         if (img.complete && img.naturalWidth > 0) {
-          checkComplete();
-        } else {
+          checkComplete?.();
+        } else if (checkComplete) {
           img.addEventListener('load', checkComplete, { once: true });
           img.addEventListener('error', checkComplete, { once: true });
         }
@@ -73,7 +75,7 @@ export function LogoLoop({ logos, className = '' }: LogoLoopProps) {
       clearTimeout(initialTimeout);
       clearTimeout(resizeTimeout);
       window.removeEventListener('resize', handleResize);
-      if (images) {
+      if (images && checkComplete) {
         images.forEach((img) => {
           img.removeEventListener('load', checkComplete);
           img.removeEventListener('error', checkComplete);
