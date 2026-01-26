@@ -3,24 +3,27 @@
     "id": "1",
     "company": "Fina AI",
     "role": "Founder & Product Designer",
-    "description": "Currently building an AI-powered iOS and web finance app that helps people track and manage all their finances in one place.",
-    "icon": "portfolio/fina-ai-icon",
-    "period": "2024 - Present"
+    "description": "Building an AI-powered iOS and web finance app to track and manage all your finances in one place.",
+    "descriptionLead": "Building an AI-powered iOS and web finance app",
+    "descriptionHighlight": "to track and manage all your finances in one place.",
+    "icon": "/companielogos/Fina.jpg"
   },
   {
     "id": "2",
     "company": "SMB.co",
-    "role": "Product Designer & Developer",
-    "description": "Manage tasks efficiently and keep projects moving forward without unnecessary delays.",
-    "icon": "portfolio/smb-co-icon",
-    "period": "2023 - 2024"
+    "role": "Product Designer",
+    "description": "Leading UX, UI, and product design for the SMB marketplace that connects buyers, sellers, and advisors.",
+    "descriptionLead": "Leading UX, UI, and product design for the SMB marketplace",
+    "descriptionHighlight": "that connects buyers, sellers, and advisors.",
+    "icon": "/companielogos/SMB.jpg"
   },
   {
     "id": "3",
     "company": "MercadoLibre",
     "role": "Product Designer",
-    "description": "Organize projects, track goals, and manage all your team's work from one place.",
-    "icon": "portfolio/mercadolibre-icon",
-    "period": "2020 - 2023"
+    "description": "Led design on the Clips team, integrating shopping via short-form video into LATAM's largest marketplace.",
+    "descriptionLead": "Led design on the Clips team,",
+    "descriptionHighlight": "integrating shopping via short-form video into LATAM's largest marketplace.",
+    "icon": "/companielogos/mercadolibre.jpg"
   }
 ]
