@@ -18,7 +18,7 @@ export default function Home() {
         <div className="max-w-[1048px] mx-auto">
           <Hero />
         </div>
-        <SectionTitle>Selected Work</SectionTitle>
+        <SectionTitle backgroundColor="#FBFBFB">Selected Work</SectionTitle>
         <div className="max-w-[1048px] mx-auto">
           <SelectedWork />
         </div>

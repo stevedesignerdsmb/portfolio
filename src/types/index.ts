@@ -4,10 +4,13 @@ export interface Project {
   title: string;
   description: string;
   longDescription?: string;
-  image: string;
-  images?: string[];
+  image: string; // Main image for project detail page
+  images?: string[]; // Additional images for project detail page gallery
+  folderImages?: string[]; // Images for folder card stack (separate from detail page)
   tags?: string[];
   link?: string;
+  platform?: string;
+  comingSoon?: boolean;
   featured?: boolean;
 }
 

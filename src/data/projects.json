@@ -7,7 +7,16 @@
     "longDescription": "Fina AI is a comprehensive financial management platform that leverages artificial intelligence to help users track expenses, manage budgets, and gain insights into their spending habits. Built for both iOS and web platforms.",
     "image": "portfolio/fina-ai-dashboard",
     "images": ["portfolio/fina-ai-dashboard", "portfolio/fina-ai-mobile"],
-    "tags": ["AI", "iOS", "Web", "Finance"],
+    "folderImages": [
+      "https://res.cloudinary.com/dfwi6dpkz/image/upload/v1769529235/Fina_6_ajl5hj.jpg",
+      "https://res.cloudinary.com/dfwi6dpkz/image/upload/v1769529234/Fina_5_y8xtjq.jpg",
+      "https://res.cloudinary.com/dfwi6dpkz/image/upload/v1769536520/Fina_10_ata5jc.jpg",
+      "https://res.cloudinary.com/dfwi6dpkz/image/upload/v1769536519/Fina_9_wgqg0x.jpg",
+      "https://res.cloudinary.com/dfwi6dpkz/image/upload/v1769529234/Fina_4_yyturj.jpg"
+    ],
+    "tags": ["Finance", "AI", "iOS"],
+    "platform": "IOS",
+    "comingSoon": false,
     "featured": true
   },
   {
@@ -17,8 +26,16 @@
     "description": "Manage tasks efficiently and keep projects moving forward without unnecessary delays.",
     "longDescription": "SMB.co is a project management platform designed for small and medium businesses. It helps teams organize projects, track goals, and manage all their work from one place.",
     "image": "portfolio/smb-co-dashboard",
-    "images": ["portfolio/smb-co-dashboard", "portfolio/smb-co-tasks"],
-    "tags": ["Project Management", "SaaS", "Web"],
+    "images": [
+      "https://res.cloudinary.com/dfwi6dpkz/image/upload/v1769537046/SMB05_sfjxnx.jpg",
+      "https://res.cloudinary.com/dfwi6dpkz/image/upload/v1769537044/SMB04_ocjvnp.jpg",
+      "https://res.cloudinary.com/dfwi6dpkz/image/upload/v1769537044/SMB03_s6ds9e.jpg",
+      "https://res.cloudinary.com/dfwi6dpkz/image/upload/v1769537043/SMB02_mowth4.jpg",
+      "https://res.cloudinary.com/dfwi6dpkz/image/upload/v1769537042/SMB01_vspdzj.jpg"
+    ],
+    "tags": ["E-commerce", "SaaS", "Web"],
+    "platform": "Web",
+    "comingSoon": false,
     "featured": true
   },
   {
@@ -28,8 +45,29 @@
     "description": "Organize projects, track goals, and manage all your team's work from one place.",
     "longDescription": "Worked on various projects at MercadoLibre, focusing on improving user experience and internal tooling for project management and team collaboration.",
     "image": "portfolio/mercadolibre-dashboard",
-    "images": ["portfolio/mercadolibre-dashboard"],
+    "images": [
+      "https://res.cloudinary.com/dfwi6dpkz/image/upload/v1769535919/MercadoLibre05_bcd9xx.jpg",
+      "https://res.cloudinary.com/dfwi6dpkz/image/upload/v1769535918/MercadoLibre04_abkmfd.jpg",
+      "https://res.cloudinary.com/dfwi6dpkz/image/upload/v1769535918/MercadoLibre03_zvct8k.jpg",
+      "https://res.cloudinary.com/dfwi6dpkz/image/upload/v1769535917/MercadoLibre02_ezrgla.jpg",
+      "https://res.cloudinary.com/dfwi6dpkz/image/upload/v1769535917/MercadoLibre01_wibfai.jpg"
+    ],
     "tags": ["E-commerce", "Enterprise", "Web"],
+    "platform": "Web, Android and IOS",
+    "comingSoon": true,
+    "featured": true
+  },
+  {
+    "id": "4",
+    "slug": "mvnifest",
+    "title": "Mvnifest",
+    "description": "A new project coming soon.",
+    "longDescription": "Mvnifest is an upcoming project.",
+    "image": "portfolio/mercadolibre-dashboard",
+    "images": ["portfolio/mercadolibre-dashboard"],
+    "tags": ["AI", "Logistics", "SaaS"],
+    "platform": "Web",
+    "comingSoon": true,
     "featured": true
   }
 ]
