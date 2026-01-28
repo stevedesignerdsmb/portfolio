@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import type { ComponentType } from 'react'
+import type { ComponentType, CSSProperties } from 'react'
 import { motion } from 'framer-motion'
 import { CldImage } from '@/lib/cloudinary'
 import * as StatusBadge from './ui/status-badge'
@@ -77,7 +77,7 @@ export function FolderCard({
   // Parse platform string to get icons - always Apple first, then Android, then Web
   const platformIcons = useMemo(() => {
     if (!platform) return []
-    const icons: ComponentType<{ className?: string }>[] = []
+    const icons: ComponentType<{ className?: string; style?: CSSProperties }>[] = []
     const platformLower = platform.toLowerCase()
     
     // Always add Apple/iOS first if present
