@@ -25,11 +25,19 @@ export function getCloudinaryUrl(publicId: string, transformations?: string): st
 }
 
 export function CldImage({ src, alt, width, height, className, priority }: CloudinaryImageProps): JSX.Element {
-  const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
-  if (!cloudName) {
-    throw new Error('NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME environment variable is not set');
+  // If src is already a full URL, use it directly
+  // Otherwise, construct URL from public ID (for backward compatibility with project detail page)
+  let imageUrl: string;
+  if (src.startsWith('http')) {
+    imageUrl = src;
+  } else {
+    const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+    if (!cloudName) {
+      throw new Error('NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME environment variable is not set');
+    }
+    // Construct URL from public ID (for project detail page)
+    imageUrl = `https://res.cloudinary.com/${cloudName}/image/upload/f_auto,q_auto/${src}`;
   }
-  const imageUrl = `https://res.cloudinary.com/${cloudName}/image/upload/${src}`;
   
   return (
     <Image
@@ -39,7 +47,7 @@ export function CldImage({ src, alt, width, height, className, priority }: Cloud
       height={height || 600}
       className={className}
       priority={priority}
-      unoptimized={false}
+      unoptimized={true}
     />
   );
 }
