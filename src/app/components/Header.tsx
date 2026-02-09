@@ -1,19 +1,35 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { RiFileCopyLine, RiCheckboxCircleFill } from '@remixicon/react';
 import * as Button from '@/app/components/ui/button';
 
 const EMAIL = 'contact@stevedesignerd.com';
 
+const slideTransition = {
+  duration: 0.25,
+  ease: [0.32, 0.72, 0, 1] as [number, number, number, number],
+};
+
 export default function Header() {
   const [copied, setCopied] = useState(false);
 
-  const handleCopyEmail = async () => {
-    await navigator.clipboard.writeText(EMAIL);
-    setCopied(true);
-  };
+  const handleCopyEmail = useCallback(async () => {
+    if (copied) return;
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      setCopied(true);
+    } catch {
+      const textarea = document.createElement('textarea');
+      textarea.value = EMAIL;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      setCopied(true);
+    }
+  }, [copied]);
 
   useEffect(() => {
     if (copied) {
@@ -24,11 +40,6 @@ export default function Header() {
 
   const handleOpenTwitter = () => {
     window.open('https://x.com/stevedesignerd', '_blank', 'noopener,noreferrer');
-  };
-
-  const animationConfig = {
-    duration: 0.3,
-    ease: [0.34, 1.56, 0.64, 1] as [number, number, number, number],
   };
 
   return (
@@ -49,86 +60,37 @@ export default function Header() {
             mode="ghost"
             size="xsmall"
             onClick={handleCopyEmail}
-            aria-label={copied ? 'Email copied' : 'Copy email'}
+            className="min-w-[151px] overflow-hidden"
+            aria-label={copied ? 'Email copied to clipboard' : 'Copy email to clipboard'}
           >
-          <motion.span
-            animate={{
-              color: copied ? 'var(--color-success-base)' : 'var(--color-text-sub-600)',
-            }}
-            transition={animationConfig}
-          >
-            Copy my email
-          </motion.span>
-          <div className="relative w-5 h-5 flex items-center justify-center" style={{ transform: 'translateZ(0)' }}>
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode="wait" initial={false}>
               {copied ? (
-                <motion.div
+                <motion.span
                   key="check"
-                  initial={{ 
-                    opacity: 0, 
-                    scale: 0.5, 
-                    rotate: 10,
-                    filter: 'blur(4px)',
-                  }}
-                  animate={{ 
-                    opacity: 1, 
-                    scale: [0.5, 1.1, 1],
-                    rotate: 0,
-                    filter: 'blur(0px)',
-                  }}
-                  exit={{ 
-                    opacity: 0, 
-                    scale: 0.5, 
-                    rotate: -10,
-                    filter: 'blur(4px)',
-                  }}
-                  transition={{
-                    ...animationConfig,
-                    scale: {
-                      times: [0, 0.7, 1],
-                      duration: 0.3,
-                      ease: [0.34, 1.56, 0.64, 1],
-                    },
-                  }}
-                  className="absolute inset-0 flex items-center justify-center"
-                  style={{ willChange: 'transform, opacity, filter' }}
+                  className="flex items-center gap-2.5"
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={slideTransition}
                 >
-                  <RiCheckboxCircleFill
-                    className="size-5 shrink-0 remixicon"
-                    style={{ color: 'var(--color-success-base)' }}
-                  />
-                </motion.div>
+                  <span>Copied!</span>
+                  <RiCheckboxCircleFill className="size-5 shrink-0 remixicon" />
+                </motion.span>
               ) : (
-                <motion.div
+                <motion.span
                   key="copy"
-                  initial={{ 
-                    opacity: 1, 
-                    scale: 1,
-                    rotate: 0,
-                    filter: 'blur(0px)',
-                  }}
-                  animate={{ 
-                    opacity: 1, 
-                    scale: 1,
-                    rotate: 0,
-                    filter: 'blur(0px)',
-                  }}
-                  exit={{ 
-                    opacity: 0, 
-                    scale: 0.5, 
-                    rotate: -10,
-                    filter: 'blur(4px)',
-                  }}
-                  transition={animationConfig}
-                  className="absolute inset-0 flex items-center justify-center"
-                  style={{ willChange: 'transform, opacity, filter' }}
+                  className="flex items-center gap-2.5"
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={slideTransition}
                 >
+                  <span>Copy my email</span>
                   <RiFileCopyLine className="size-5 shrink-0 remixicon" />
-                </motion.div>
+                </motion.span>
               )}
             </AnimatePresence>
-          </div>
-        </Button.Root>
+          </Button.Root>
         </div>
       </div>
     </header>

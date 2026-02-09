@@ -14,7 +14,7 @@ export const fancyButtonVariants = tv({
   slots: {
     root: [
       // base
-      'group relative inline-flex items-center justify-center whitespace-nowrap text-label-sm outline-none',
+      'group relative inline-flex items-center justify-center whitespace-nowrap text-label-sm outline-none cursor-pointer',
       'transition duration-200 ease-out',
       'font-medium',
       // focus

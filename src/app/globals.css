@@ -473,6 +473,8 @@
   
   --animate-accordion-up: accordion-up 0.2s ease-out;
   
+  --animate-line-shadow: line-shadow 5s linear infinite;
+  
 }
 
 /* Force light mode to match Figma design (no system dark-mode override) */
@@ -616,10 +618,26 @@ html {
   }
 }
 
+@keyframes line-shadow {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% -100%;
+  }
+}
+
 /* Custom styles */
 .remixicon path {
   transform: scale(0.8996);
   transform-origin: center;
+}
+
+/* Design system utility: title-h1 (56px / 64px / -1%) – used where full typography token isn’t in Tailwind */
+.text-title-h1 {
+  font-size: var(--text-title-h1);
+  line-height: var(--text-title-h1--line-height);
+  letter-spacing: var(--text-title-h1--letter-spacing);
 }
 
 /* Page gradient background tokens */
@@ -630,7 +648,7 @@ html {
 
 /* AlignUI Body Styles */
 body {
-  background: linear-gradient(180deg, var(--bg-white-0, #FFF) 0%, var(--bg-weak-25, #F7F7F7) 55.29%);
+  background: var(--bg-white-0);
   color: var(--color-text-strong-950);
   font-family: var(--font-pp-neue-montreal), sans-serif;
   margin: 0;

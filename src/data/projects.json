@@ -16,7 +16,7 @@
     ],
     "tags": ["Finance", "AI", "iOS"],
     "platform": "IOS",
-    "comingSoon": false,
+    "comingSoon": true,
     "featured": true
   },
   {
@@ -35,7 +35,7 @@
     ],
     "tags": ["E-commerce", "SaaS", "Web"],
     "platform": "Web",
-    "comingSoon": false,
+    "comingSoon": true,
     "featured": true
   },
   {
@@ -64,9 +64,16 @@
     "description": "A new project coming soon.",
     "longDescription": "Mvnifest is an upcoming project.",
     "image": "portfolio/mercadolibre-dashboard",
-    "images": ["portfolio/mercadolibre-dashboard"],
+    "images": [
+      "https://res.cloudinary.com/dfwi6dpkz/image/upload/v1769713464/mvnifest05_dulcft.jpg",
+      "https://res.cloudinary.com/dfwi6dpkz/image/upload/v1769713464/mvnifest01_rvzi23.jpg",
+      "https://res.cloudinary.com/dfwi6dpkz/image/upload/v1769713464/mvnifest04_khqbl7.jpg",
+      "https://res.cloudinary.com/dfwi6dpkz/image/upload/v1769713464/mvnifest02_dqcrh3.jpg",
+      "https://res.cloudinary.com/dfwi6dpkz/image/upload/v1769713464/mvnifest03_r0xvd5.jpg"
+    ]
+    ,
     "tags": ["AI", "Logistics", "SaaS"],
-    "platform": "Web",
+    "platform": "Web and IOS",
     "comingSoon": true,
     "featured": true
   }

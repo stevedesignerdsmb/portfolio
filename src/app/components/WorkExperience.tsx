@@ -14,7 +14,7 @@ function ContactCard() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: 0.2 }}
-      className="mt-auto rounded-[12px] bg-bg-white-0 p-4 shadow-[inset_0_-1px_1px_-0.5px_rgba(51,51,51,0.06),0_0_0_1px_#f5f5f5,0_1px_2px_rgba(51,51,51,0.04),0_2px_4px_rgba(51,51,51,0.04),0_4px_8px_-2px_rgba(51,51,51,0.06)]"
+      className="group mt-auto rounded-[12px] bg-[var(--bg-white-0)] border border-[var(--color-stroke-soft-200)] p-4 shadow-[0_1px_2px_0_rgba(10,13,20,0.03)]"
     >
       <div className="flex items-start gap-4">
         <div className="flex min-w-0 w-full flex-col gap-1">
@@ -29,8 +29,10 @@ function ContactCard() {
           </p>
         </div>
         <a
-          href="#"
-          className="flex shrink-0 items-center gap-2 text-sm font-medium text-text-strong-950 no-underline transition-opacity hover:opacity-80 group"
+          href="https://drive.google.com/file/d/1i52NiXD0mniOU-mMaa91O_pphEYBrBsE/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex shrink-0 items-center gap-2 text-sm font-medium text-text-strong-950 no-underline transition-opacity hover:opacity-80"
         >
           <span>View Resume</span>
           <RiArrowRightLongLine className="size-5 remixicon transition-transform duration-300 ease-in-out group-hover:rotate-[-45deg]" />
@@ -89,7 +91,7 @@ export default function WorkExperience() {
                 className="flex gap-6 items-start"
               >
                 <div className="w-[88px] shrink-0 flex flex-col items-center">
-                  <div className="bg-white border border-gray-200 rounded-full p-6">
+                  <div className="bg-white rounded-full p-6 shadow-[inset_0_-1px_1px_-0.5px_rgba(51,51,51,0.06),0_0_0_1px_#f5f5f5,0_1px_2px_rgba(51,51,51,0.04),0_2px_4px_rgba(51,51,51,0.04),0_4px_8px_-2px_rgba(51,51,51,0.06)]">
                     {exp.icon ? (
                       <Image
                         src={exp.icon}

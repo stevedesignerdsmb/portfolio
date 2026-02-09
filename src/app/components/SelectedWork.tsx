@@ -1,14 +1,14 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
-import { CldImage } from '@/lib/cloudinary';
+import { createPortal } from 'react-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import { getAllProjects } from '@/lib/projects';
 import { Visual } from '@/types';
 import visualsData from '@/data/visuals.json';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { FolderCard } from './FolderCard';
+import { CldImage } from '@/lib/cloudinary';
 
 type TabType = 'visuals' | 'projects' | 'motion';
 
@@ -144,8 +144,11 @@ const TABS = [
   },
 ];
 
+const VISIBLE_TABS = TABS.filter((tab) => tab.name !== 'motion');
+
 export default function SelectedWork() {
   const [activeTab, setActiveTab] = useState<TabType>('visuals');
+  const [selectedVisual, setSelectedVisual] = useState<Visual | null>(null);
   const projects = getAllProjects();
   const visuals = visualsData as Visual[];
   const containerRef = useRef<HTMLDivElement>(null);
@@ -172,6 +175,20 @@ export default function SelectedWork() {
     }
   }, [activeTab]);
 
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSelectedVisual(null);
+    };
+    if (selectedVisual) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleEscape);
+    }
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleEscape);
+    };
+  }, [selectedVisual]);
+
   return (
     <section className="pt-12 pb-16">
       <div className="flex flex-col gap-6">
@@ -179,7 +196,7 @@ export default function SelectedWork() {
           <div className="relative bg-gray-50 rounded-full p-1 flex gap-0">
             {/* Base layer - inactive tabs */}
             <div className="flex gap-0">
-              {TABS.map((tab) => (
+              {VISIBLE_TABS.map((tab) => (
                 <button
                   key={tab.name}
                   onClick={() => setActiveTab(tab.name)}
@@ -200,7 +217,7 @@ export default function SelectedWork() {
               }}
             >
               <div className="flex gap-0">
-                {TABS.map((tab) => (
+                {VISIBLE_TABS.map((tab) => (
                   <button
                     key={tab.name}
                     ref={activeTab === tab.name ? activeTabElementRef : null}
@@ -226,21 +243,98 @@ export default function SelectedWork() {
           className="mt-12"
         >
           {activeTab === 'visuals' && (
-            <div className="border border-gray-200 rounded-[40px] p-2.5">
-              <div className="bg-gray-50 rounded-[32px] p-2.5">
-                <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
-                  <div className="aspect-[1048/654] w-full">
-                    <CldImage
-                      src="portfolio/visuals-gallery"
-                      alt="Visuals Gallery"
-                      width={1048}
-                      height={654}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {visuals.map((visual) => (
+                  <button
+                    key={visual.id}
+                    type="button"
+                    onClick={() => setSelectedVisual(visual)}
+                    className="cursor-zoom-in block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-400 rounded focus:rounded"
+                    aria-label={`View ${visual.title ?? 'Visual'}`}
+                  >
+                    <motion.div
+                      className="overflow-hidden rounded-sm"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+                    >
+                      <CldImage
+                        src={visual.image}
+                        alt={visual.title ?? 'Visual'}
+                        width={393}
+                        height={852}
+                        className="w-full h-auto block"
+                      />
+                    </motion.div>
+                  </button>
+                ))}
               </div>
-            </div>
+
+              {activeTab === 'visuals' &&
+                typeof document !== 'undefined' &&
+                createPortal(
+                  <AnimatePresence>
+                    {selectedVisual && (
+                      <motion.div
+                        key="lightbox"
+                        className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
+                        role="dialog"
+                        aria-modal="true"
+                        aria-label="Image lightbox"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <motion.div
+                          className="absolute inset-0 bg-black/70"
+                          onClick={() => setSelectedVisual(null)}
+                          aria-hidden="true"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                        />
+                        <button
+                          type="button"
+                          className="absolute top-4 right-4 z-10 rounded-full bg-white/90 p-2 text-gray-800 hover:bg-white transition-colors"
+                          onClick={() => setSelectedVisual(null)}
+                          aria-label="Close"
+                        >
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path d="M18 6L6 18M6 6l12 12" />
+                          </svg>
+                        </button>
+                        <motion.div
+                          className="relative z-[1] max-w-4xl max-h-[90vh] w-full flex items-center justify-center"
+                          onClick={(e) => e.stopPropagation()}
+                          initial={{ opacity: 0, scale: 0.95 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0, scale: 0.98 }}
+                          transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                        >
+                          <CldImage
+                            src={selectedVisual.image}
+                            alt={selectedVisual.title ?? 'Visual'}
+                            width={1200}
+                            height={900}
+                            className="max-w-full max-h-[90vh] w-auto h-auto object-contain rounded-lg shadow-2xl"
+                          />
+                        </motion.div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>,
+                  document.body
+                )}
+            </>
           )}
 
           {activeTab === 'projects' && (

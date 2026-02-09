@@ -44,7 +44,7 @@ export default function Contact() {
     >
       <div className="flex flex-col gap-4 items-center">
         <h2
-          className="text-[178px] font-medium text-center leading-[178px] tracking-[-5.34px]"
+          className="text-[72px] leading-[80px] sm:text-[100px] sm:leading-[108px] md:text-[130px] md:leading-[130px] min-[1168px]:text-[178px] min-[1168px]:leading-[178px] font-medium text-center tracking-[-0.04em] min-[1168px]:tracking-[-5.34px]"
           style={{
             color: 'transparent',
             WebkitTextStrokeWidth: '1.4px',
@@ -53,7 +53,7 @@ export default function Contact() {
         >
           Find me in
         </h2>
-        <div className="bg-gray-200 rounded-full p-1 flex gap-1 items-center relative overflow-hidden">
+        <div className="bg-gray-200 rounded-2xl md:rounded-full p-2 md:p-1 flex flex-col md:flex-row gap-2 md:gap-1 w-full max-w-sm mx-auto md:mx-0 md:max-w-none md:w-auto items-stretch md:items-center relative overflow-hidden">
           {contactLinks.map((link, index) => {
             const Icon = link.icon;
             const isHovered = hoveredIndex === index;
@@ -66,7 +66,7 @@ export default function Contact() {
                 rel={
                   link.href.startsWith('http') ? 'noopener noreferrer' : undefined
                 }
-                className="relative z-10 rounded-full px-3 py-2.5 flex items-center gap-2 overflow-hidden"
+                className="relative z-10 rounded-xl md:rounded-full px-3 py-2.5 flex items-center justify-center md:justify-start gap-2 overflow-hidden w-full md:w-auto"
                 style={{
                   boxShadow: '0 3px 3px -1.5px var(--shadow-gray-shadow-6, rgba(23, 23, 23, 0.06)), 0 1px 1px -0.5px var(--shadow-gray-shadow-6, rgba(23, 23, 23, 0.06)), 0 0 0 1px var(--shadow-gray-shadow-2, rgba(23, 23, 23, 0.02))',
                 }}
@@ -85,11 +85,11 @@ export default function Contact() {
                   ease: [0.4, 0, 0.2, 1],
                 }}
               >
-                {/* Morphing background indicator - inside each link for proper clipping */}
+                {/* Morphing background indicator - rounded-xl on mobile to match link, pill on desktop */}
                 {isHovered && (
                   <motion.div
                     layoutId="hover-pill-bg"
-                    className="absolute inset-0 rounded-full pointer-events-none"
+                    className="absolute inset-0 rounded-xl md:rounded-full pointer-events-none"
                     style={{
                       backgroundColor: 'var(--color-bg-strong-950)',
                       zIndex: 0,

@@ -16,17 +16,27 @@ export default function SectionTitle({ children, backgroundColor }: SectionTitle
           className="relative flex w-full items-center justify-center gap-0"
           style={{ minHeight: '24px' }}
         >
-          {/* Mobile (< 1168px): flex lines, full width, no dots */}
+          {/* Mobile (< 1168px): left line | title | right line - same order as Footer for full divider */}
           <div
             className="flex-1 h-px shrink-0 bg-gray-200 min-[1168px]:hidden"
             aria-hidden
           />
+          {/* Title - centered between the two lines */}
+          <h2
+            className="shrink-0 px-4 text-base font-medium text-center text-text-soft-400 relative z-10 break-words"
+            style={{ 
+              backgroundColor: backgroundColor ?? 'var(--bg-white-0)', 
+              isolation: 'isolate' 
+            }}
+          >
+            {children}
+          </h2>
           <div
             className="flex-1 h-px shrink-0 bg-gray-200 min-[1168px]:hidden"
             aria-hidden
           />
 
-          {/* Desktop (>= 1168px): lines end at vertical dividers, no overflow - render first for proper stacking */}
+          {/* Desktop (>= 1168px): lines end at vertical dividers - render as absolute for proper stacking */}
           <div
             className="absolute top-1/2 z-0 hidden h-px -translate-y-1/2 bg-gray-200 min-[1168px]:block"
             style={{
@@ -43,17 +53,6 @@ export default function SectionTitle({ children, backgroundColor }: SectionTitle
             }}
             aria-hidden
           />
-
-          {/* Title - always centered - render after dividers for proper paint order */}
-          <h2
-            className="shrink-0 px-4 text-base font-medium text-center text-text-soft-400 relative z-10"
-            style={{ 
-              backgroundColor: backgroundColor || 'var(--bg-weak-25, #F7F7F7)', 
-              isolation: 'isolate' 
-            }}
-          >
-            {children}
-          </h2>
 
           {/* Desktop: junction dots at vertical divider intersections */}
           <div

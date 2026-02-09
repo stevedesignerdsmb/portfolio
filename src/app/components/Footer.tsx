@@ -101,7 +101,7 @@ export default function Footer() {
             {/* Footer text - always centered */}
             <p
               className="shrink-0 px-4 text-xs font-medium text-center text-gray-400 relative z-10"
-              style={{ backgroundColor: 'var(--bg-weak-25)' }}
+              style={{ backgroundColor: 'var(--bg-white-0)' }}
             >
               Thanks for visiting! Made in <CursorIcon /> with{' '}
               <span className="inline-flex items-baseline">

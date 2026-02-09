@@ -1,38 +1,62 @@
 [
   {
     "id": "1",
-    "image": "portfolio/visual-1",
-    "title": "Dashboard Design",
-    "description": "Modern dashboard interface"
+    "image": "crypto_wallet_xjkhvr",
+    "title": "Crypto Wallet",
+    "description": "Secure digital wallet interface for managing crypto assets"
   },
   {
     "id": "2",
-    "image": "portfolio/visual-2",
-    "title": "Mobile App UI",
-    "description": "Clean mobile interface design"
+    "image": "wallet_ihboqi",
+    "title": "Personal Wallet",
+    "description": "Minimal wallet app for tracking balances and transactions"
   },
   {
     "id": "3",
-    "image": "portfolio/visual-3",
-    "title": "Brand Identity",
-    "description": "Complete brand system"
+    "image": "namecheap_extois",
+    "title": "Domain Manager",
+    "description": "Hosting and domain management dashboard layout"
   },
   {
     "id": "4",
-    "image": "portfolio/visual-4",
-    "title": "Web Design",
-    "description": "Responsive web layout"
+    "image": "namecheapdark_fu2v38",
+    "title": "Dark Hosting Dashboard",
+    "description": "Dark mode interface for domain and server controls"
   },
   {
     "id": "5",
-    "image": "portfolio/visual-5",
-    "title": "Illustration",
-    "description": "Custom illustrations"
+    "image": "smb_dashboard_h3yqu0",
+    "title": "Business Dashboard",
+    "description": "Analytics and metrics dashboard for small businesses"
   },
   {
     "id": "6",
-    "image": "portfolio/visual-6",
-    "title": "Icon System",
-    "description": "Comprehensive icon library"
+    "image": "agent_ilkvew",
+    "title": "AI Assistant UI",
+    "description": "Conversational agent interface with smart actions"
+  },
+  {
+    "id": "7",
+    "image": "pallet_h4n09h",
+    "title": "Color System",
+    "description": "Design palette and visual style guide components"
+  },
+  {
+    "id": "8",
+    "image": "Mobile_App_ynnfnc",
+    "title": "Mobile App Layout",
+    "description": "Clean multi-screen mobile application design"
+  },
+  {
+    "id": "9",
+    "image": "oxxly_swluxa",
+    "title": "E-commerce Experience",
+    "description": "Modern storefront interface with product browsing"
+  },
+  {
+    "id": "10",
+    "image": "concept_u2osi7",
+    "title": "Product Concept",
+    "description": "Early-stage UI concept exploring layout and interactions"
   }
 ]

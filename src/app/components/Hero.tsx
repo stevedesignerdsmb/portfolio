@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { RiArrowRightSLine } from '@remixicon/react';
 import * as FancyButton from '@/app/components/ui/fancy-button';
@@ -8,17 +8,18 @@ import { BlurText } from '@/app/components/ui/blur-text';
 import clientsData from '@/data/clients.json';
 
 const CALENDAR_URL = 'https://calendar.app.google/m2zcyWCGspiJSdEi6';
+const LINKEDIN_URL = 'https://www.linkedin.com/in/steve-calderon-549b2b1aa/';
 
 export default function Hero() {
   const clients = clientsData as { name: string }[];
   const [isHovered, setIsHovered] = useState(false);
 
-  const scrollToContact = useCallback(() => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-  }, []);
-
   const handleCalendarClick = () => {
     window.open(CALENDAR_URL, '_blank');
+  };
+
+  const handleLinkedInClick = () => {
+    window.open(LINKEDIN_URL, '_blank');
   };
 
   return (
@@ -53,7 +54,7 @@ export default function Hero() {
           type="button"
           variant="neutral"
           size="small"
-          onClick={scrollToContact}
+          onClick={handleLinkedInClick}
         >
           Let&apos;s talk
           <FancyButton.Icon as="span">

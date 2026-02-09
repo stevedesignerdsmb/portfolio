@@ -30,6 +30,8 @@ export interface WorkExperience {
 export interface Visual {
   id: string;
   image: string;
+  /** "mobile" = portrait (e.g. 576x1250), "desktop" = landscape (e.g. 2203x1250). Defaults to "mobile". */
+  type?: 'mobile' | 'desktop';
   title?: string;
   description?: string;
 }

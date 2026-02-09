@@ -11,14 +11,14 @@ import SectionTitle from './components/SectionTitle';
 
 export default function Home() {
   return (
-    <main className="min-h-screen relative">
+    <main className="min-h-screen relative overflow-x-hidden">
       <DividerSystem />
       <Header />
       <div className="max-w-[1440px] mx-auto px-5 relative z-10">
         <div className="max-w-[1048px] mx-auto">
           <Hero />
         </div>
-        <SectionTitle backgroundColor="#FBFBFB">Selected Work</SectionTitle>
+        <SectionTitle>Selected Work</SectionTitle>
         <div className="max-w-[1048px] mx-auto">
           <SelectedWork />
         </div>
@@ -26,11 +26,11 @@ export default function Home() {
         <div className="max-w-[1048px] mx-auto">
           <WorkExperience />
         </div>
-        <SectionTitle>About Me</SectionTitle>
+        <SectionTitle>Why work with me?</SectionTitle>
         <div className="max-w-[1048px] mx-auto">
           <AboutMe />
         </div>
-        <SectionTitle>How I use AI in my daily workflow</SectionTitle>
+        <SectionTitle>My thoughts about AI</SectionTitle>
         <div className="max-w-[1048px] mx-auto">
           <AIWorkflow />
         </div>
