@@ -1,45 +1,53 @@
-import Header from './components/Header';
-import Hero from './components/Hero';
-import SelectedWork from './components/SelectedWork';
-import WorkExperience from './components/WorkExperience';
-import AboutMe from './components/AboutMe';
-import AIWorkflow from './components/AIWorkflow';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import DividerSystem from './components/DividerSystem';
-import SectionTitle from './components/SectionTitle';
+import { projects, site, testimonials, workplaces } from '@/content/site';
+import { Pad, Section, WorkCard } from '@/components/Blocks';
+import { Greeting } from '@/components/Greeting';
+import { Testimonials } from '@/components/Testimonials';
+import { TextLink } from '@/components/TextLink';
+import { Workplaces } from '@/components/Workplaces';
+import { ContactButtons } from '@/components/ContactButtons';
 
+/**
+ * Index, after kevdu.co: who I am, where I've worked, how to reach me, then
+ * the work itself. Every card under "Selected work" is a case study, so
+ * nothing on this page leaves you guessing where a click goes.
+ */
 export default function Home() {
   return (
-    <main className="min-h-screen relative overflow-x-hidden">
-      <DividerSystem />
-      <Header />
-      <div className="max-w-[1440px] mx-auto px-5 relative z-10">
-        <div className="max-w-[1048px] mx-auto">
-          <Hero />
+    <>
+      <Pad className="pb-12 pt-14">
+        <Greeting />
+        <div className="mt-4 leading-[22px]">
+          <h1 className="text-[16px] font-medium text-fg">{site.name}</h1>
+          <p className="text-[16px] text-fg-3">{site.role}</p>
         </div>
-        <SectionTitle>Selected Work</SectionTitle>
-        <div className="max-w-[1048px] mx-auto">
-          <SelectedWork />
+
+        <div className="mt-5 space-y-4 text-[14px] leading-5 text-fg">
+          <p>I design product interfaces and build them in code. Lately that means AI agents: what they say, what they show while they work, and the screens around them.</p>
+          <p>
+            Right now I’m a design engineer at <TextLink href="https://kiiex.io">Kiiex</TextLink>, working on cross-border
+            payments and trading. Before that, <TextLink href="https://smb.co">SMB.co</TextLink> and{' '}
+            <TextLink href="https://www.mercadolibre.com">Mercado Libre</TextLink>.
+          </p>
         </div>
-        <SectionTitle>Recent Experience</SectionTitle>
-        <div className="max-w-[1048px] mx-auto">
-          <WorkExperience />
+
+        <div className="mt-8">
+          <Workplaces items={workplaces} />
         </div>
-        <SectionTitle>Why work with me?</SectionTitle>
-        <div className="max-w-[1048px] mx-auto">
-          <AboutMe />
+
+        <ContactButtons className="mt-8" />
+      </Pad>
+
+      <Section title="Selected work">
+        <div className="space-y-6">
+          {projects.map((p) => (
+            <WorkCard key={p.slug} p={p} />
+          ))}
         </div>
-        <SectionTitle>My thoughts about AI</SectionTitle>
-        <div className="max-w-[1048px] mx-auto">
-          <AIWorkflow />
-        </div>
-        <SectionTitle>Contact me</SectionTitle>
-        <div className="max-w-[1048px] mx-auto">
-          <Contact />
-          <Footer />
-        </div>
-      </div>
-    </main>
+      </Section>
+
+      <Section title="Kind words">
+        <Testimonials items={testimonials} />
+      </Section>
+    </>
   );
 }

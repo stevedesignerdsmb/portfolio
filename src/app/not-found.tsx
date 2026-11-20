@@ -1,18 +1,14 @@
-import Link from 'next/link';
+import { Button, Pad } from '@/components/Blocks';
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white">
-      <div className="text-center">
-        <h1 className="text-4xl font-medium text-gray-900 mb-4">404</h1>
-        <p className="text-xl text-gray-600 mb-8">Page not found</p>
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-xl hover:bg-gray-800 transition-colors"
-        >
-          Go back home
-        </Link>
+    <Pad className="py-24">
+      <p className="tabular text-[14px] text-fg-3">404</p>
+      <h1 className="mt-2 text-[22px] font-medium tracking-[-0.02em]">This page doesn’t exist.</h1>
+      <p className="mt-2 text-[14px] text-fg-2">It may have moved during the redesign.</p>
+      <div className="mt-6">
+        <Button href="/">Back to the index</Button>
       </div>
-    </div>
+    </Pad>
   );
 }
