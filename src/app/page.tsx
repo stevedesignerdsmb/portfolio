@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { projects, site, testimonials, workplaces } from '@/content/site';
 import { Pad, Section, WorkCard } from '@/components/Blocks';
 import { Greeting } from '@/components/Greeting';
@@ -5,6 +6,8 @@ import { Testimonials } from '@/components/Testimonials';
 import { TextLink } from '@/components/TextLink';
 import { Workplaces } from '@/components/Workplaces';
 import { ContactButtons } from '@/components/ContactButtons';
+
+export const metadata: Metadata = { alternates: { canonical: '/' } };
 
 /**
  * Index, after kevdu.co: who I am, where I've worked, how to reach me, then

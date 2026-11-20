@@ -177,6 +177,7 @@ export function FinaScene({ still = false, className }: { still?: boolean; class
     <div
       ref={box}
       role="img"
+      data-nosnippet
       aria-label="Raw bank notifications pass through Fina and come out as logged purchases; a copy of a purchase that already came in is marked as a duplicate and skipped."
       className={cn('fscene relative w-full overflow-hidden rounded-[14px] bg-surface-2 shadow-ring', className)}
       style={{ aspectRatio: `${W} / ${H}` }}

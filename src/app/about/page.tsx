@@ -5,7 +5,7 @@ import { AboutCollage } from '@/components/AboutCollage';
 import { TextLink } from '@/components/TextLink';
 import { ContactButtons } from '@/components/ContactButtons';
 
-export const metadata: Metadata = { title: 'About' };
+export const metadata: Metadata = { title: 'About', alternates: { canonical: '/about' } };
 
 const principles = [
   {

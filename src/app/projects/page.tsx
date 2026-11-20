@@ -6,7 +6,7 @@ import { IconArrowRight } from '@/components/Icons';
 import { Frame, Logo, MediaTK, PhoneTrio, Shot } from '@/components/Media';
 import { FinaScene } from '@/components/FinaScene';
 
-export const metadata: Metadata = { title: 'Projects' };
+export const metadata: Metadata = { title: 'Projects', alternates: { canonical: '/projects' } };
 
 /**
  * Own products, laid out like wireframe.co/projects: name and link, a large

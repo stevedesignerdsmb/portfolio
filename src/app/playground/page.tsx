@@ -4,7 +4,7 @@ import { Pad, Section } from '@/components/Blocks';
 import { Playground } from '@/components/Playground';
 import { Demos } from '@/components/Demos';
 
-export const metadata: Metadata = { title: 'Playground' };
+export const metadata: Metadata = { title: 'Playground', alternates: { canonical: '/playground' } };
 
 export default function PlaygroundPage() {
   return (

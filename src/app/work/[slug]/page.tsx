@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const p = projects.find((x) => x.slug === slug);
   if (!p) return { title: 'Not found' };
-  return { title: p.title, description: isTK(p.tagline) ? undefined : p.tagline };
+  return { title: p.title, alternates: { canonical: `/work/${p.slug}` }, description: isTK(p.tagline) ? undefined : p.tagline };
 }
 
 /*
