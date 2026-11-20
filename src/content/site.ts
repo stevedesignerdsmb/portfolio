@@ -13,7 +13,7 @@ export const cld = (id: string, w = 1600) =>
 export const site = {
   name: 'Steve Calderon',
   role: 'Design Engineer',
-  url: 'https://stevedesignerd.com',
+  url: 'https://www.stevedesignerd.com',
   location: 'Guadalajara',
   country: 'Mexico',
   timezone: 'America/Mexico_City',
