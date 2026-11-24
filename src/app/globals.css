@@ -597,3 +597,90 @@ strong, b { font-weight: 550; }
 }
 .sm-cover-shot { box-shadow: 0 0 0 1px rgb(255 255 255 / 0.06), 0 0 0 1.5px rgb(0 0 0 / 0.5), 0 24px 60px -24px rgb(0 0 0 / 0.55); }
 [data-theme="dark"] .sm-cover-shot { box-shadow: 0 0 0 1px rgb(255 255 255 / 0.08), 0 24px 60px -24px rgb(0 0 0 / 0.8); }
+
+/* ---------- Résumé: one document for the pop-up, /cv and the PDF ---------- */
+.cv { color: var(--fg); font-size: 12.5px; line-height: 1.5; font-weight: 400; }
+.cv a { color: inherit; text-decoration: none; }
+.cv-head { padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.cv h1 { font-size: 22px; line-height: 1.15; font-weight: 600; letter-spacing: -0.02em; }
+.cv-sub { margin-top: 2px; color: var(--fg-3); font-size: 13px; }
+.cv-contact { display: flex; flex-wrap: wrap; column-gap: 14px; margin-top: 8px; color: var(--fg-3); font-size: 11.5px; line-height: 1.55; }
+.cv-contact a:hover { color: var(--fg); }
+.cv section { margin-top: 16px; }
+.cv h2 { margin-bottom: 6px; color: var(--fg-3); font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+.cv-role + .cv-role { margin-top: 10px; }
+.cv h3 { display: flex; justify-content: space-between; gap: 16px; font-size: 13px; font-weight: 600; }
+.cv h3 a:hover { text-decoration: underline; text-decoration-color: var(--link-line-hover); text-underline-offset: 2px; }
+.cv-date { flex-shrink: 0; color: var(--fg-3); font-weight: 400; font-variant-numeric: tabular-nums; }
+.cv ul { margin-top: 3px; }
+.cv ul:not(.cv-plain) li { position: relative; padding-left: 14px; color: var(--fg-2); }
+.cv ul:not(.cv-plain) li::before { content: ''; position: absolute; left: 3px; top: 0.72em; width: 4px; height: 1px; background: var(--fg-4); }
+.cv-plain li { color: var(--fg-2); }
+.cv-plain li + li { margin-top: 4px; }
+.cv-strong { color: var(--fg); font-weight: 600; }
+
+.cv-paper { border-radius: 12px; background: var(--surface); box-shadow: 0 0 0 1px var(--line); padding: clamp(20px, 6%, 44px); }
+.cv-paper-page { border-radius: 14px; }
+
+/* The pop-up: the sheet rises and settles, the page dims behind it. */
+.cv-dialog {
+  width: min(760px, calc(100vw - 24px));
+  max-width: none;
+  max-height: calc(100dvh - 24px);
+  margin: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: visible;
+}
+.cv-dialog::backdrop { background: rgb(11 11 13 / 0.6); backdrop-filter: blur(6px); }
+.cv-sheet {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100dvh - 24px);
+  overflow: hidden;
+  border-radius: 18px;
+  background: var(--surface-2);
+  box-shadow: var(--shadow-lift);
+}
+.cv-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 10px 10px 18px; }
+.cv-sheet .cv-paper { margin: 0 10px 10px; overflow-y: auto; overscroll-behavior: contain; }
+.cv-dialog[open] .cv-sheet { animation: cv-in 420ms var(--ease-out-expo) both; }
+.cv-dialog[open] .cv-sheet .cv > * { animation: cv-rise 480ms var(--ease-out-expo) both; }
+.cv-dialog[open] .cv-sheet .cv > *:nth-child(2) { animation-delay: 40ms; }
+.cv-dialog[open] .cv-sheet .cv > *:nth-child(3) { animation-delay: 80ms; }
+.cv-dialog[open] .cv-sheet .cv > *:nth-child(4) { animation-delay: 120ms; }
+.cv-dialog[open] .cv-sheet .cv > *:nth-child(n+5) { animation-delay: 160ms; }
+.cv-dialog[open]::backdrop { animation: backdrop-in 260ms ease-out both; }
+.cv-dialog.is-closing .cv-sheet { animation: cv-out 160ms var(--ease-out-quart) both; }
+.cv-dialog.is-closing::backdrop { animation: cv-fade-out 160ms ease-out both; }
+@keyframes cv-in { from { opacity: 0; transform: translateY(24px) scale(0.97); filter: blur(6px); } }
+@keyframes cv-rise { from { opacity: 0; transform: translateY(6px); filter: blur(2px); } }
+@keyframes cv-out { to { opacity: 0; transform: translateY(8px) scale(0.985); filter: blur(2px); } }
+@keyframes cv-fade-out { to { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .cv-dialog[open] .cv-sheet, .cv-dialog[open] .cv-sheet .cv > *, .cv-dialog.is-closing .cv-sheet { animation: cv-fade-out 1ms reverse both; }
+}
+@media (max-width: 640px) {
+  .cv h3 { flex-direction: column; gap: 0; }
+}
+
+/* Print: only the document, on one Letter page, always light. */
+@page { size: Letter; margin: 0.5in 0.55in; }
+@media print {
+  html, body { background: #fff !important; }
+  body * { visibility: hidden; }
+  #cv, #cv * { visibility: visible; }
+  #cv {
+    position: fixed; inset: 0 auto auto 0; width: 100%;
+    --fg: #131316; --fg-2: #2a2b31; --fg-3: #5e5f6e; --fg-4: #9394a1; --line: #e4e4e8;
+    font-size: 10.5px; line-height: 1.45;
+  }
+  #cv .cv-contact { font-size: 9.5px; margin-top: 5px; }
+  #cv h1 { font-size: 20px; }
+  #cv .cv-sub { font-size: 11.5px; }
+  #cv h2 { font-size: 9.5px; margin-bottom: 4px; }
+  #cv h3 { flex-direction: row; font-size: 11px; }
+  #cv section { margin-top: 12px; }
+  #cv .cv-role + .cv-role { margin-top: 8px; }
+}

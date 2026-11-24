@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: { default: title, template: `%s — ${site.name}` },
   description: site.description,
   authors: [{ name: site.name, url: site.url }],
-  keywords: ['design engineer', 'product designer', 'UI engineer', 'interaction design', 'fintech', 'marketplaces', 'Next.js', 'SwiftUI'],
+  keywords: ['Steve Calderon', 'design engineer', 'product designer', 'UI engineer', 'interaction design', 'AI agent interfaces', 'fintech', 'marketplaces', 'React', 'Next.js', 'SwiftUI', 'Guadalajara', 'Mexico', 'résumé'],
   openGraph: { title, description: site.description, url: site.url, siteName: site.name, type: 'profile', locale: 'en_US' },
   twitter: { card: 'summary_large_image', title, description: site.description, creator: '@stevedesignerd' },
   robots: { index: true, follow: true },
@@ -33,12 +33,16 @@ const personLd = {
   description: site.description,
   email: `mailto:${site.email}`,
   address: { '@type': 'PostalAddress', addressLocality: 'Guadalajara', addressCountry: 'MX' },
-  sameAs: [site.linkedin, site.x],
+  sameAs: [site.linkedin, site.x, site.github],
+  subjectOf: { '@type': 'DigitalDocument', name: `${site.name} résumé`, url: `${site.url}/cv`, encoding: { '@type': 'MediaObject', contentUrl: `${site.url}/steve-calderon-cv.pdf`, encodingFormat: 'application/pdf' } },
+  knowsLanguage: ['es', 'en'],
   knowsAbout: ['AI agent interfaces', 'Conversational UI', 'Product design', 'Design engineering', 'Interaction design', 'Design systems', 'Front-end development', 'Fintech', 'Marketplaces'],
   worksFor: { '@type': 'Organization', name: 'Kiiex', url: 'https://kiiex.io' },
   alumniOf: [
     { '@type': 'Organization', name: 'Mercado Libre', url: 'https://www.mercadolibre.com' },
     { '@type': 'Organization', name: 'SMB.co', url: 'https://smb.co' },
+    { '@type': 'Organization', name: 'Mvnifest', url: 'https://mvnifest.com' },
+    { '@type': 'Organization', name: 'Pixelspace' },
   ],
 };
 

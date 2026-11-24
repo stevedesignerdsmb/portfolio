@@ -1,4 +1,5 @@
 import { career, clients, products, projects, site } from '@/content/site';
+import { resumePdf, resumeText } from '@/content/resume';
 
 export const dynamic = 'force-static';
 
@@ -32,7 +33,9 @@ export function GET() {
     `- [About](${site.url}/about)`,
     `- [Playground](${site.url}/playground)`,
     `- [LinkedIn](${site.linkedin})`,
-    `- [Résumé](${site.resume})`,
+    `- [Résumé](${site.url}/cv) ([PDF](${site.url}${resumePdf}), [JSON](${site.url}/cv.json))`,
+    '',
+    resumeText(),
     '',
   ]);
   return new Response(body, { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });

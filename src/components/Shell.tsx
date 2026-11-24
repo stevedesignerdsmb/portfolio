@@ -6,6 +6,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { site, shots } from '@/content/site';
 import { ThemeSwitch } from './ThemeSwitch';
 import { SoundToggle } from './Sound';
+import { ResumeLink, ResumeProvider } from './ResumeDialog';
 import { cn } from '@/lib/utils';
 
 const nav = [
@@ -220,7 +221,7 @@ function Sidebar() {
           <p className="label">Elsewhere</p>
           <p className="flex gap-3">
             <a href={site.linkedin} target="_blank" rel="noreferrer" className="basic-link">LinkedIn</a>
-            <a href={site.resume} target="_blank" rel="noreferrer" className="basic-link">Résumé</a>
+            <ResumeLink className="basic-link" />
           </p>
         </div>
         <div className="flex items-center gap-2">
@@ -279,7 +280,7 @@ function MobileFooter() {
           <a href={`mailto:${site.email}`} className="basic-link">Email</a>
           <a href={site.x} className="basic-link">X</a>
           <a href={site.linkedin} className="basic-link">LinkedIn</a>
-          <a href={site.resume} className="basic-link">Résumé</a>
+          <ResumeLink className="basic-link" />
         </div>
         <div className="flex items-center gap-2">
           <ThemeSwitch />
@@ -297,6 +298,7 @@ function MobileFooter() {
  */
 export function Shell({ children }: { children: React.ReactNode }) {
   return (
+    <ResumeProvider>
     <div className="relative min-h-dvh">
       <div className="relative mx-auto min-h-dvh max-w-[952px] lg:border-x lg:border-line">
         <MobileHeader />
@@ -309,5 +311,6 @@ export function Shell({ children }: { children: React.ReactNode }) {
         <MobileFooter />
       </div>
     </div>
+    </ResumeProvider>
   );
 }

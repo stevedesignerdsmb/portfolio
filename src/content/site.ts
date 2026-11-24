@@ -18,7 +18,7 @@ export const site = {
   country: 'Mexico',
   timezone: 'America/Mexico_City',
   email: 'contact@stevedesignerd.com',
-  resume: 'https://drive.google.com/file/d/1i52NiXD0mniOU-mMaa91O_pphEYBrBsE/view?usp=sharing',
+  resume: 'https://www.stevedesignerd.com/cv',
   x: 'https://x.com/stevedesignerd',
   linkedin: 'https://www.linkedin.com/in/steve-calderon-549b2b1aa/',
   github: 'https://github.com/stevedesignerdsmb',
